@@ -1,0 +1,2 @@
+Criar a camada de assets para a futura transição
+Duplicar a room inicio( rm_jogo, rm_tutorial)
