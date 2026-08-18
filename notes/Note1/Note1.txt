@@ -1,2 +1,6 @@
 Criar a camada de assets para a futura transição
 Duplicar a room inicio( rm_jogo, rm_tutorial)
+Importar a sprite do Player
+Criar o objeto player
+Colocar ele na room na camada correta
+Testar o jogo
