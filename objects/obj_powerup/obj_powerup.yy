@@ -1,13 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tiro_player",
+  "%Name":"obj_powerup",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_tiro_player",
+  "name":"obj_powerup",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -32,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tiro_player",
-    "path":"sprites/spr_tiro_player/spr_tiro_player.yy",
+    "name":"spr_powerup",
+    "path":"sprites/spr_powerup/spr_powerup.yy",
   },
   "spriteMaskId":null,
   "visible":true,
