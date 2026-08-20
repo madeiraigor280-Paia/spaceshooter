@@ -8,9 +8,10 @@ velv = 0
 vel = 2
 
 //Vidas
+vidas		= 3;
 
 //Escudos
-
+escudos		= 3;
 //Variavel da espera do tiro
 espera_tiro = 10
 //Varivel do timer do tiro
@@ -194,5 +195,33 @@ ganha_level_tiro = function()
 	}
 	//level_tiro = clamp(level_tiro, 1, 4)
 }
+
+desenha_icone = function(_icone = spr_icone_vida, _qtd = 1, _y = 20)
+{
+	
+	
+	//Usando o laço de repetição repeat
+	var _espaco = 0
+	repeat(_qtd)
+	{
+		draw_sprite_ext(_icone, 0, 20 + _espaco, _y, 1, 1, 0, c_white, .5)
+	
+		//Aumentando o espaço
+		_espaco += 30
+	}
+
+	
+}
+
+//Dando bom dia, passando como parametro o nome da pessoa
+bom_dia = function(_nome = "pessoa")
+{
+	show_message("Bom dia " + string(_nome));	
+}
+
+//bom_dia("Juca")
+//bom_dia("Ana")
+
+
 
 #endregion
