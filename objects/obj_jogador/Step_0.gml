@@ -1,6 +1,12 @@
 
 //move_and_collide(velh * vel, velv * vel, obj_chao)
 
+//Ativando e desativando o meu debug
+if (keyboard_check_released(vk_tab))
+{
+	//Eu inverto o valor do debug
+	global.debug = !global.debug;
+}
 
 //Controlando o player
 controla_player();

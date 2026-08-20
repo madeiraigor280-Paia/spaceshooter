@@ -7,6 +7,10 @@ velv = 0
 
 vel = 2
 
+//Vidas
+
+//Escudos
+
 //Variavel da espera do tiro
 espera_tiro = 10
 //Varivel do timer do tiro
