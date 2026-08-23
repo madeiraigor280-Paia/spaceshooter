@@ -23,6 +23,16 @@ timer_tiro = 0
 //Level do meu tiro
 level_tiro = 1;
 
+//Não tenho escudo
+meu_escudo = noone;
+
+
+//Criar um timer de invencibilidade
+//O player só pode perder vida se ele NÃO esta invencivel
+//Ele não esta invencivel se o timer de invencivilidade for <= 0
+tempo_invencivel = game_get_speed(gamespeed_fps)
+timer_invencivel = 0;
+
 #endregion
 
 
@@ -31,6 +41,9 @@ level_tiro = 1;
 //Metodo de controlar o player
 controla_player = function()
 {
+	
+	//Diminuindo o timer invencivel
+	timer_invencivel--;
 	
 	//Pegando as teclas
 	var _right	 = keyboard_check(ord("D")) or keyboard_check(vk_right);
@@ -223,5 +236,51 @@ bom_dia = function(_nome = "pessoa")
 //bom_dia("Ana")
 
 
+//Método para perder vida
+perde_vida = function()
+{
+	//Só posso perder vida, se eu não estou invencivel
+	//Com funções podemos colocar funções
+	//O que return faz ? Ele encerra a função ali
+	//Ele fala que acabou a função, retorna ela
+	if (timer_invencivel > 0) return;
+		
+		//Perdendo vida SE eu ainda tenho vida
+		if (vidas > 0)
+		{
+			vidas--;
+			
+			//Perdi vida, eu aviso que o tempo de invencivel ta valendo
+			timer_invencivel = tempo_invencivel;
+		}
+		else //Ou seja, se a vidas forem 0 ou menos
+		{
+			instance_destroy()
+		}
+	
+}
+
+usa_escudos = function()
+{
+	//Crio escudo se eu tenho escudos
+	//E se eu ainda não tenho escudo na variavel meu escudo
+	if (escudos > 0 && meu_escudo == noone)
+	{
+		escudos--;
+	
+		//Quando a animação do escudo terminar
+		//Ele para a animação dele (image_speed  = 0)
+		//Garantir que ele está na ULTIMA imagem da animação image_index
+	
+		//Quando eu apertar a letra E
+		//Ele vai criar o escudo na minha posição
+	
+		//Criando o escudo
+		//Guardando o escudo criado como o MEU ESCUDO
+		meu_escudo = instance_create_layer(x, y, "escudos", obj_escudo)
+	}
+	
+	
+}
 
 #endregion

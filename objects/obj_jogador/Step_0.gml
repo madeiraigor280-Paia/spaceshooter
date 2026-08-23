@@ -11,6 +11,27 @@ if (keyboard_check_released(vk_tab))
 //Controlando o player
 controla_player();
 
+
+//Sempre que eu apertar enter o jogador perde 1 de vida
+
+//Se o jogador estiver com 0 ou menos vida
+//Ele é destruido
+if (keyboard_check_pressed(vk_enter))
+{
+	perde_vida();	
+}
+
+//Quando eu apertar a tecla E
+//Eu gasto 1 de escudo
+if (keyboard_check_pressed(ord("E")))
+{
+	usa_escudos();
+	
+	
+}
+
+
+
 //Mudando o valor do level do meu tiro
 //Se eu apertei para cima, o level do meu tiro diminui
 var _cima = keyboard_check_pressed(ord("O"))
@@ -27,6 +48,20 @@ if (_cima)
 	level_tiro = clamp(level_tiro, 1, 3)
 }
 
+//Se eu tiver escudo, eu faço ele ficar na minha posição
+//Se existir uma instância do meu escudo, eu movo ele
+if (instance_exists(meu_escudo))
+{
+	
+		meu_escudo.x = x;
+		meu_escudo.y = y
+	
+}
+else //Não tenho uma instância existente no meu escudo
+{
+	//Eu aviso que o valor dele é noone
+	meu_escudo = noone;
+}
 //if (keyboard_check_pressed(vk_up))
 //{
 //	level_tiro--;	
