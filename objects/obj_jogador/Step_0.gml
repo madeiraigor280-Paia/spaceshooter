@@ -23,12 +23,6 @@ if (keyboard_check_pressed(vk_enter))
 
 //Quando eu apertar a tecla E
 //Eu gasto 1 de escudo
-if (keyboard_check_pressed(ord("E")))
-{
-	usa_escudos();
-	
-	
-}
 
 
 
@@ -48,20 +42,7 @@ if (_cima)
 	level_tiro = clamp(level_tiro, 1, 3)
 }
 
-//Se eu tiver escudo, eu faço ele ficar na minha posição
-//Se existir uma instância do meu escudo, eu movo ele
-if (instance_exists(meu_escudo))
-{
-	
-		meu_escudo.x = x;
-		meu_escudo.y = y
-	
-}
-else //Não tenho uma instância existente no meu escudo
-{
-	//Eu aviso que o valor dele é noone
-	meu_escudo = noone;
-}
+
 //if (keyboard_check_pressed(vk_up))
 //{
 //	level_tiro--;	
@@ -76,3 +57,5 @@ else //Não tenho uma instância existente no meu escudo
 
 //Crie um debug para o level do meu tiro
 //Crie esse debug no evento draw
+
+//show_debug_message(timer_invencivel)

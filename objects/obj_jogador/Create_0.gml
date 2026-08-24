@@ -92,6 +92,16 @@ controla_player = function()
 	//Limitando a posição vertical do player
 	y = clamp(y, 19, 500)
 	
+	if (keyboard_check_pressed(ord("E")))
+	{
+		usa_escudos();
+	
+	
+	}
+
+	
+	com_escudos();
+	
 	//Façam o teste de cada tecla
 	
 	//Diminuindo o timer do tiro
@@ -280,6 +290,26 @@ usa_escudos = function()
 		meu_escudo = instance_create_layer(x, y, "escudos", obj_escudo)
 	}
 	
+	
+}
+
+com_escudos = function()
+{
+	//Se eu tiver escudo, eu faço ele ficar na minha posição
+	//Se existir uma instância do meu escudo, eu movo ele
+	if (instance_exists(meu_escudo))
+	{
+	
+			meu_escudo.x = x;
+			meu_escudo.y = y
+			timer_invencivel = 10;
+	}
+	else //Não tenho uma instância existente no meu escudo
+	{
+		//Eu aviso que o valor dele é noone
+		meu_escudo = noone;
+	
+	}
 	
 }
 
