@@ -1,1 +1,1 @@
-morrendo();
+sendo_destruido(obj_explosao_tiro)
