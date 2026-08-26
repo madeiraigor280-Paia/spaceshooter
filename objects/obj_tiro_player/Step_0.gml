@@ -2,7 +2,7 @@
 if (y <= -32)
 {
 	//Me destruindo
-	instance_destroy()	
+	instance_destroy()
 }
 
 if (x <= - 32)

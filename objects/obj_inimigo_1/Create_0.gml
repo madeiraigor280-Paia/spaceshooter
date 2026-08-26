@@ -1,5 +1,10 @@
 alarm[0] = game_get_speed(gamespeed_fps) * 2;
 
+//Descobrindo se eu fui criado uma sequence
+//O que faz saber se ele está uma sequencia ?
+//Usando o in_sequence
+criado_em_sequence = in_sequence;
+
 //Método para atirar
 atirando = function()
 {
