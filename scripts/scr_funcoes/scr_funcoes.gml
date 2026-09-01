@@ -19,4 +19,15 @@ function sendo_destruido(_particula = obj_explosao_tiro)
 	
 }
 
+//Função de screenshake
+function screenshake(_treme = 1)
+{
+	if (instance_exists(obj_screenshake))
+	{
+		//Passando para ele o valor de treme
+		obj_screenshake.treme = _treme;	
+	}
+	
+}
+
 #endregion

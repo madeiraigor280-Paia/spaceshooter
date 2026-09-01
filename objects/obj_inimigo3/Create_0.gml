@@ -3,8 +3,12 @@ vida = 10;
 //Variavel que controla o meu estado
 estado = "chegando";
 
+contador = 0;
+
 tempo_carregando = game_get_speed(gamespeed_fps) * 3;
 timer_carregando = 0;
+
+decidi_direcao = false;
 //Máquina de estado
 //state de machine
 //É uma tecnica de programação
@@ -58,6 +62,9 @@ maquina_de_estados = function()
 				//Resetando o timer
 				timer_carregando = 0;
 				
+				//Aumento o valor do contador
+				contador++;
+				
 			}
 			
 			//Ele vai esperar 3 segundos
@@ -73,6 +80,7 @@ maquina_de_estados = function()
 		//Crie os objetos dos tiros do inimigo 3;
 		case "atacando":
 		{
+			
 			//Encontrando a direção para o player
 			//Fazer ele chegar se o player existe
 			if (instance_exists(obj_jogador))
@@ -84,10 +92,18 @@ maquina_de_estados = function()
 				_tiro.speed = 2;
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir + 90;
+				
 			}
 			
 			//Atirei eu volto a carregar
-			estado = "carregando";
+			if (contador <= 3)
+			{
+				estado = "carregando";
+			}
+			else
+			{
+				estado = "fugindo";	
+			}
 			
 			
 		}
@@ -96,12 +112,56 @@ maquina_de_estados = function()
 		
 		case "atirando2":
 		{
-			//Faça o tiro b dele ser criado indo para baixo
-			var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_b);
-			_tiro.vspeed = 4;
+			var _ang = 255;
+			//Repetir a criação do tiro 3x
+			repeat(8)
+			{
+				//Criando o meu tiro
+				var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_b)
+				_tiro.speed = 4;
+				_tiro.direction = _ang; //270 //315
+				
+				//Aumento o ang em 45
+				_ang += 15;
+				
+				
+				
+			}
 			
-			//Faça ele voltar para o estado de carregando
-			estado = "carregando";
+			//Vou para o estado de carregando SE o meu contador
+			//Ainda não passou de 3
+			if (contador <= 3)
+			{
+				estado = "carregando";
+			}
+			else
+			{
+				estado = "fugindo";	
+			}
+			//Caso contrário ele vai para o estado de fugindo
+		}
+		break;
+		
+		case "fugindo":
+		{
+			//Indo para cima
+			//Decidindo o lado SE eu ainda não decidi uma direção
+			if (decidi_direcao == false)
+			{
+				hspeed = choose(-1, 1);
+				
+				
+				//Já decidi minha direção
+				decidi_direcao = true;
+			}
+			
+			vspeed = -1;
+			
+			//Já sai da tela, eu me destruo
+			if (y <= -100)
+			{
+				instance_destroy();
+			}
 			
 		}
 		break;

@@ -255,6 +255,8 @@ perde_vida = function()
 	//Ele fala que acabou a função, retorna ela
 	if (timer_invencivel > 0) return;
 		
+		
+		
 		//Perdendo vida SE eu ainda tenho vida
 		if (vidas > 0)
 		{
@@ -262,10 +264,14 @@ perde_vida = function()
 			
 			//Perdi vida, eu aviso que o tempo de invencivel ta valendo
 			timer_invencivel = tempo_invencivel;
+			
+			screenshake(20)
 		}
 		else //Ou seja, se a vidas forem 0 ou menos
 		{
 			instance_destroy()
+			
+			screenshake(50);
 		}
 	
 }

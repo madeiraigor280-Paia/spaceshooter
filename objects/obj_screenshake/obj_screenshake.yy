@@ -1,23 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_inimigo3",
+  "%Name":"obj_screenshake",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_inimigo3",
+  "name":"obj_screenshake",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigos",
-    "path":"folders/Objetos/Inimigos.yy",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
-  "parentObjectId":{
-    "name":"obj_inimigo_1",
-    "path":"objects/obj_inimigo_1/obj_inimigo_1.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -35,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_inimigo3",
-    "path":"sprites/spr_inimigo3/spr_inimigo3.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
