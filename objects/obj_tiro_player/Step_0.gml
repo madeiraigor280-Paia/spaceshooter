@@ -1,4 +1,6 @@
 //Checando se eu sai da room por cima
+speed = 2;
+
 if (y <= -32)
 {
 	//Me destruindo

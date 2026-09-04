@@ -185,6 +185,9 @@ morrendo = function()
 		
 		var _part = instance_create_layer(x, y, "Particulas", obj_explosao_inimigo);
 		_part.image_angle = random(359);
+		
+		//Se eu me destruir, eu tremo ainda mais a tela
+		screenshake(20);
 	}
 	
 	//E cria a particula de explosão dele
