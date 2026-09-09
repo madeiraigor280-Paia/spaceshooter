@@ -1,4 +1,4 @@
-vspeed = -2;
+//vspeed = -2;
 
 morrendo = function()
 {
@@ -11,3 +11,13 @@ morrendo = function()
 	_part.image_angle = random(359);
 	
 }
+
+//Escolhendo a minha cor
+cor = choose(c_red, c_aqua, c_lime, c_yellow, c_fuchsia, c_maroon);
+
+vspeed = -1;
+
+
+//Fazendo o tiro ter um efeito de grandão
+image_xscale = 3;
+image_yscale = 2;

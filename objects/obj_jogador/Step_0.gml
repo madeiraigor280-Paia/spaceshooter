@@ -18,7 +18,7 @@ controla_player();
 //Ele é destruido
 if (keyboard_check_pressed(vk_enter))
 {
-	perde_vida();	
+	perde_vida();
 }
 
 //Quando eu apertar a tecla E
@@ -42,6 +42,11 @@ if (_cima)
 	level_tiro = clamp(level_tiro, 1, 3)
 }
 
+//Fazer com image_yscale é ruim por que
+//Isso muda a colisão dele
+retorna_mola(.3)
+
+contador_efeito_branco();
 
 //if (keyboard_check_pressed(vk_up))
 //{

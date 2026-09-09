@@ -26,12 +26,16 @@ level_tiro = 1;
 //Não tenho escudo
 meu_escudo = noone;
 
+inicia_efeito_branco();
 
 //Criar um timer de invencibilidade
 //O player só pode perder vida se ele NÃO esta invencivel
 //Ele não esta invencivel se o timer de invencivilidade for <= 0
 tempo_invencivel = game_get_speed(gamespeed_fps)
 timer_invencivel = 0;
+
+//Variavel para desenhar a minha escala
+inicia_efeito_mola();
 
 #endregion
 
@@ -130,7 +134,10 @@ controla_player = function()
 		//}
 		//	break;
 		//}
-	
+		
+		
+		//Mudando o tamanho do player
+		efeito_mola(.8, 1.2)
 		//Checando se eu estou no level do tiro
 		if (level_tiro == 1)
 		{
@@ -168,7 +175,7 @@ tiro_1 = function()
 	
 	
 	//Dando a velocidade para o tiro
-	_tiro.vspeed = -10
+	//_tiro.vspeed = -10
 	
 }
 
@@ -178,9 +185,9 @@ tiro_2 = function()
 	//Criando o tiro da esquerda
 	var _tiro = instance_create_layer(x - 10, y, "tiros", obj_tiro_player);
 	//Dando a velocidade para o tiro
-	_tiro.vspeed = -10
+	//_tiro.vspeed = -10
 	_tiro = instance_create_layer(x + 10, y, "tiros", obj_tiro_player);
-	_tiro.vspeed = -10
+	//_tiro.vspeed = -10
 
 
 	
@@ -200,7 +207,7 @@ tiro_4 = function()
 	{
 		var _dire = i*-10;
 		var _tiro = instance_create_layer(x,y,"tiros",obj_tiro_player);
-		_tiro.speed = -10;	
+		//_tiro.speed = -10;	
 		_tiro.direction = 0+_dire;
 		_tiro.image_angle = _tiro.direction+90;
 		
@@ -255,7 +262,10 @@ perde_vida = function()
 	//Ele fala que acabou a função, retorna ela
 	if (timer_invencivel > 0) return;
 		
+		//Vou ficar meio achatado
+		efeito_mola(2, .5)
 		
+		timer_efeito_branco(3)
 		
 		//Perdendo vida SE eu ainda tenho vida
 		if (vidas > 0)
@@ -266,6 +276,7 @@ perde_vida = function()
 			timer_invencivel = tempo_invencivel;
 			
 			screenshake(20)
+			
 		}
 		else //Ou seja, se a vidas forem 0 ou menos
 		{
