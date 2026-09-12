@@ -40,6 +40,7 @@
     {"link":"io.gamemaker.gm_filter_vignette-1.0.0","name":"io.gamemaker.gm_filter_vignette-1.0.0","path":"io.gamemaker.gm_filter_vignette-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_greyscale-1.0.0","name":"io.gamemaker.gm_filter_greyscale-1.0.0","path":"io.gamemaker.gm_filter_greyscale-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_effect_glow-1.0.0","name":"io.gamemaker.gm_effect_glow-1.0.0","path":"io.gamemaker.gm_effect_glow-1.0.0.yyp",},
+    {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
   ],
   "IncludedFiles":[],
   "isEcma":false,
@@ -49,6 +50,7 @@
   },
   "name":"spaceshooter",
   "resources":[
+    {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},},
     {"id":{"name":"obj_chao","path":"objects/obj_chao/obj_chao.yy",},},
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
@@ -82,6 +84,7 @@
     {"id":{"name":"snd_shield_sumindo","path":"sounds/snd_shield_sumindo/snd_shield_sumindo.yy",},},
     {"id":{"name":"snd_shield","path":"sounds/snd_shield/snd_shield.yy",},},
     {"id":{"name":"snd_tiro","path":"sounds/snd_tiro/snd_tiro.yy",},},
+    {"id":{"name":"snd_zap","path":"sounds/snd_zap/snd_zap.yy",},},
     {"id":{"name":"spr_bg0","path":"sprites/spr_bg0/spr_bg0.yy",},},
     {"id":{"name":"spr_bg1","path":"sprites/spr_bg1/spr_bg1.yy",},},
     {"id":{"name":"spr_bg2","path":"sprites/spr_bg2/spr_bg2.yy",},},
