@@ -48,6 +48,8 @@ retorna_mola(.3)
 
 contador_efeito_branco();
 
+if (keyboard_check_pressed(vk_backspace)) room_restart();
+
 //if (keyboard_check_pressed(vk_up))
 //{
 //	level_tiro--;	

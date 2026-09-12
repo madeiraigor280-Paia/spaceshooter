@@ -110,4 +110,12 @@ function desenha_efeito_branco(_funcao_desenho = 0)
 	
 }
 
+function efeito_som(_som = snd_tiro, _variacao = .1)
+{
+	var _pitch = random_range(1 - _variacao, 1 + _variacao)
+	
+	audio_play_sound(_som, 0, 0, , , _pitch);
+		
+}
+
 #endregion

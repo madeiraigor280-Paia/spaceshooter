@@ -8,8 +8,13 @@ criado_em_sequence = in_sequence;
 //Método para atirar
 atirando = function()
 {
-	var _tiro	= instance_create_layer(x, y, "tiros", obj_tiro_inimigo1);
-	_tiro.vspeed = 4;
+	efeito_som(snd_tiro, .1);
+	//Só posso atirar se eu estou dentro da room
+	if (x < room_width && x > 0 && y > 0 && y < room_height)
+	{
+		var _tiro	= instance_create_layer(x, y, "tiros", obj_tiro_inimigo1);
+		_tiro.vspeed = 4;
+	}
 	
 }
 
@@ -26,13 +31,14 @@ crio_explosao = function()
 morrendo = function()
 {
 	sendo_destruido(obj_explosao_inimigo);
-	
+	//Explodindo
+	efeito_som(snd_explosao, .1);
 	
 	var _chance = random(100)
 	//Criando o power up
 	//Se o chance for maior do que 90
 	//Ele cria o power up
-	if (_chance > 90)
+	if (_chance > 95)
 	{
 		instance_create_layer(x, y, layer, obj_powerup)
 	}

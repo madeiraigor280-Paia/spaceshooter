@@ -1,5 +1,7 @@
 //vspeed = -2;
 
+tipo_movimento = "reto";
+
 morrendo = function()
 {
 	

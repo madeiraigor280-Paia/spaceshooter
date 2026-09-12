@@ -96,6 +96,8 @@ controla_player = function()
 	//Limitando a posição vertical do player
 	y = clamp(y, 19, 500)
 	
+
+	
 	if (keyboard_check_pressed(ord("E")))
 	{
 		usa_escudos();
@@ -134,7 +136,9 @@ controla_player = function()
 		//}
 		//	break;
 		//}
-		
+		//Tocar o som do tiro
+		audio_stop_sound(snd_tiro);
+		efeito_som(snd_tiro, .1);
 		
 		//Mudando o tamanho do player
 		efeito_mola(.8, 1.2)
@@ -210,6 +214,8 @@ tiro_4 = function()
 		//_tiro.speed = -10;	
 		_tiro.direction = 0+_dire;
 		_tiro.image_angle = _tiro.direction+90;
+		_tiro.tipo_movimento = "radial";
+		_tiro.speed = 2;   // velocidade inicial, na direção certa
 		
 		
 	}
@@ -244,6 +250,13 @@ desenha_icone = function(_icone = spr_icone_vida, _qtd = 1, _y = 20)
 }
 
 //Dando bom dia, passando como parametro o nome da pessoa
+
+//Eu vou parar de tocar todos os sons
+//tocando a musica do jogo
+audio_stop_all();
+//audio_stop_sound(snd_musica);
+audio_play_sound(musica_fundo, 0, 1);
+
 bom_dia = function(_nome = "pessoa")
 {
 	show_message("Bom dia " + string(_nome));	
@@ -282,6 +295,8 @@ perde_vida = function()
 		{
 			instance_destroy()
 			
+			instance_create_layer(x, y, "Particulas", obj_explosao_jogador);
+			
 			screenshake(50);
 		}
 	
@@ -294,6 +309,9 @@ usa_escudos = function()
 	if (escudos > 0 && meu_escudo == noone)
 	{
 		escudos--;
+		
+		//Ativei o estudo eu faço o efeito do estudo
+		efeito_som(sfx_shieldUp, 0)
 	
 		//Quando a animação do escudo terminar
 		//Ele para a animação dele (image_speed  = 0)

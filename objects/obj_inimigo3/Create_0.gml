@@ -5,6 +5,10 @@ estado = "chegando";
 
 contador = 0;
 
+//Iniciando os efeitos
+inicia_efeito_branco();
+inicia_efeito_mola()
+
 tempo_carregando = game_get_speed(gamespeed_fps) * 3;
 timer_carregando = 0;
 
@@ -80,7 +84,8 @@ maquina_de_estados = function()
 		//Crie os objetos dos tiros do inimigo 3;
 		case "atacando":
 		{
-			
+			efeito_mola(1.5, .5);
+			efeito_som(snd_tiro, .1);
 			//Encontrando a direção para o player
 			//Fazer ele chegar se o player existe
 			if (instance_exists(obj_jogador))
@@ -112,7 +117,10 @@ maquina_de_estados = function()
 		
 		case "atirando2":
 		{
+			efeito_mola(1.5, .5);
 			var _ang = 255;
+			
+			efeito_som(snd_tiro, .1);
 			//Repetir a criação do tiro 3x
 			repeat(8)
 			{
@@ -172,12 +180,16 @@ maquina_de_estados = function()
 morrendo = function()
 {
 	//Perder vida
+	efeito_mola(1.5, .5);
+	timer_efeito_branco(2);
 	
 	
 	//Se ele ficou sem vida ele se destroi
 	if (vida > 1)
 	{
 		vida--;
+		
+		
 	}
 	else
 	{
@@ -188,6 +200,10 @@ morrendo = function()
 		
 		//Se eu me destruir, eu tremo ainda mais a tela
 		screenshake(20);
+		
+		
+		//Som da explosão
+		efeito_som(snd_explosao)
 	}
 	
 	//E cria a particula de explosão dele
