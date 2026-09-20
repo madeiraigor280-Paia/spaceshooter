@@ -147,4 +147,10 @@ function finaliza_transicao()
 	
 }
 
+function destroi_sequence()
+{
+	sequence_destroy(sq_alerta)	;
+	
+}
+
 #endregion

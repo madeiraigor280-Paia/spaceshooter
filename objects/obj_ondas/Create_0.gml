@@ -9,3 +9,7 @@ atual = 0;
 
 //Falando quando ele deve criar a próxima onda
 alarm[0] = 100;
+
+
+timer_boss = 400;
+tempo_boss = 0;
