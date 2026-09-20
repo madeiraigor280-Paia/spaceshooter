@@ -47,6 +47,52 @@ controla_menu = function()
 
 	margem = lerp(margem, 40, .1);
 	
+	//Checando se a pessoa apertou o enter
+	if (keyboard_check_pressed(vk_enter))
+	{
+		ativa_menu();
+	
+	}
+	
+}
+
+ativa_menu = function()
+{
+		//Fazendo o menu funcionar
+		switch(atual)
+		{
+			//Jogar
+			case 0:
+			//Chamando a transição 1
+			//Esse é o centro da minha room
+			layer_sequence_create("sq_transicao", room_width /2 , room_height / 2, sq_transicao1);
+			//O destino é a tela de jogo
+			global.destino = rm_jogo;
+			
+			//Está tendo uma transicçaõ
+			global.transicao = true;
+			
+			break;
+		
+			//Tutorial
+			case 1:
+			layer_sequence_create("sq_transicao", room_width / 2, room_height / 2, sq_transicao1);
+			global.destino = rm_tutorial;
+			
+			//Está tendo uma transição
+			global.transicao = true;
+			
+			break;
+		
+			//Sair
+			case 2:
+				//Fechando o jogo
+				game_end();
+			break;
+		
+		}	
+	
+	
 }
 
 desenha_menu = function()

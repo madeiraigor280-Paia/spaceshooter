@@ -298,6 +298,13 @@ perde_vida = function()
 			instance_create_layer(x, y, "Particulas", obj_explosao_jogador);
 			
 			screenshake(50);
+			
+			
+			//Crio a transição para voltar para a tela inicial
+			layer_sequence_create("sq_transicao", x, y, sq_transicao1)
+			global.transicao = true;
+			
+			
 		}
 	
 }
@@ -349,3 +356,10 @@ com_escudos = function()
 }
 
 #endregion
+
+
+//Criando a tranição na minha posição
+layer_sequence_create("sq_transicao", x, y, sq_transicao2);
+
+//Avisando que o destino é a room inicial
+global.destino = rm_inicio;

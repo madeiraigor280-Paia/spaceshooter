@@ -1,12 +1,17 @@
 #region globais
 global.debug = false
 
+//Definindo o destino que minha transicao vai levar
+global.destino = rm_inicio;
 
+global.transicao = false;
 
 #endregion
 
 
 #region funções
+
+
 
 //Função começa por function
 function sendo_destruido(_particula = obj_explosao_tiro)
@@ -116,6 +121,30 @@ function efeito_som(_som = snd_tiro, _variacao = .1)
 	
 	audio_play_sound(_som, 0, 0, , , _pitch);
 		
+}
+
+//Função para mudar de room
+function transicao_simples()
+{
+	room_goto(global.destino);
+	
+	//Garanto que não tem som nenhum tocando
+	audio_stop_all();
+	
+}
+
+function morreu_player()
+{
+	layer_sequence_create("sq_transicao", room_width / 2, room_height / 2,  sq_transicao1);
+	
+		
+	
+}
+
+function finaliza_transicao()
+{
+	global.transicao = false;	
+	
 }
 
 #endregion

@@ -5,6 +5,10 @@ if (global.debug)
 	draw_text(20, 20, "Level tiro: " + string(level_tiro))
 }
 
+
+//Só desenho e não ta tendo transição
+
+if (global.transicao) exit;
 //Desenhando as vidas do player
 //Desenhe a palavra vida na base da janela
 var _tamanho_janela = view_get_hport(view_hport)
