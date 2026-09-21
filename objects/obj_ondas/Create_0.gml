@@ -11,5 +11,5 @@ atual = 0;
 alarm[0] = 100;
 
 
-timer_boss = 400;
+timer_boss = 1000;
 tempo_boss = 0;

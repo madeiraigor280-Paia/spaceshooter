@@ -4,7 +4,7 @@ instance_destroy()
 //Rodando o metodo de ganhar level do player
 //Em evento de colisão, quando alguem colidi comigo
 //Esse alguem é o other
-other.ganha_level_tiro()
+aplico_power();
 
 //Criando a particula do tiro na minha posição
 var _part =instance_create_layer(x, y,"Instances", obj_explosao_tiro);

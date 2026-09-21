@@ -4,7 +4,18 @@ global.debug = false
 //Definindo o destino que minha transicao vai levar
 global.destino = rm_inicio;
 
+
+randomize();
 global.transicao = false;
+
+
+global.pontos = 0;
+global.level = 1
+
+//Lista de pontos para subir de level
+global.lista_pontos = [100, 250, 500, 800, 1200, 1800, 2500, 3500, 5000];
+
+global.vida_mult = [1.2, 1.3, 1.4, 1.5, 1.8, 2.0, 2.1, 2.2, 2.4];
 
 #endregion
 

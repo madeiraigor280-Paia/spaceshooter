@@ -1,5 +1,11 @@
 // Inherit the parent event
-vida = 30;
+vida_max = 30 * global.vida_mult[global.level-1];
+vida = vida_max;
+x_barra = 0;
+tam_barra = 0;
+
+hp_secundario = vida_max;
+
 
 estado = "chegando"
 
@@ -25,6 +31,8 @@ if (!fiz_alerta)
 	fiz_alerta = true;
 }
 
+// Create ou onde você dispara a sequência
+seq = layer_sequence_create("sq_alerta", 144, 244, sq_alerta);
 
 maquina_de_estado = function()
 {
@@ -183,6 +191,8 @@ morrendo = function()
 	else
 	{
 		instance_destroy();
+		
+		var _power_up = instance_create_layer(x, y, layer, obj_powerup);
 		
 		var _part = instance_create_layer(x, y, "Particulas", obj_explosao_inimigo);
 		_part.image_angle = random(359);

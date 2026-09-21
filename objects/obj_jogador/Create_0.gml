@@ -8,10 +8,14 @@ velv = 0
 vel = 2
 
 //Vidas
-vidas		= 3;
+max_vida = 3
+vidas		= max_vida;
 
 //Escudos
-escudos		= 3;
+max_escudos = 3
+escudos		= max_escudos;
+
+
 //Variavel da espera do tiro
 espera_tiro = 10
 //Varivel do timer do tiro
@@ -231,6 +235,27 @@ ganha_level_tiro = function()
 	}
 	//level_tiro = clamp(level_tiro, 1, 4)
 }
+
+//Fazendo ele ganhar escudos
+ganha_escudo = function()
+{
+	if (escudos <= max_escudos)
+	{
+		escudos += 1;
+	}
+}
+
+ganha_vida = function()
+{
+	
+	
+	if (vidas <= max_vida)
+	{
+		vidas += 2;
+	}
+	
+}
+
 
 desenha_icone = function(_icone = spr_icone_vida, _qtd = 1, _y = 20)
 {
