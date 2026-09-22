@@ -83,6 +83,7 @@
     {"id":{"name":"sq_onda1","path":"sequences/sq_onda1/sq_onda1.yy",},},
     {"id":{"name":"sq_onda1b","path":"sequences/sq_onda1b/sq_onda1b.yy",},},
     {"id":{"name":"sq_onda2","path":"sequences/sq_onda2/sq_onda2.yy",},},
+    {"id":{"name":"sq_onda3","path":"sequences/sq_onda3/sq_onda3.yy",},},
     {"id":{"name":"sq_tela_inicial","path":"sequences/sq_tela_inicial/sq_tela_inicial.yy",},},
     {"id":{"name":"sq_transicao1","path":"sequences/sq_transicao1/sq_transicao1.yy",},},
     {"id":{"name":"sq_transicao2","path":"sequences/sq_transicao2/sq_transicao2.yy",},},

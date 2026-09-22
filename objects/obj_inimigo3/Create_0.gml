@@ -201,7 +201,11 @@ morrendo = function()
 		//Se eu me destruir, eu tremo ainda mais a tela
 		screenshake(20);
 		
-		
+		var _chance = random(100)
+		if (_chance > 80)
+		{
+			instance_create_layer(x, y, layer, obj_powerup)
+		}
 		//Som da explosão
 		efeito_som(snd_explosao)
 	}

@@ -1,6 +1,6 @@
 poder = choose("Escudo", "Vida", "Tiro");
 
-
+tempo_vivo = 500;
 
 aplico_power = function()
 {

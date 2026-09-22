@@ -11,5 +11,7 @@ atual = 0;
 alarm[0] = 100;
 
 
-timer_boss = 1000;
+timer_boss = choose(1000, 1200)
+timer_mini_boss = choose(500, 700)
+tempo_mini = 0;
 tempo_boss = 0;

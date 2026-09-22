@@ -14,7 +14,6 @@ if (alarm[1] <= 0){
 hp_secundario = lerp(hp_secundario, vida, 0.1)
 }
 
-show_debug_message(vida);
 
 
 retorna_mola();

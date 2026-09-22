@@ -34,13 +34,14 @@ if (!fiz_alerta)
 // Create ou onde você dispara a sequência
 seq = layer_sequence_create("sq_alerta", 144, 244, sq_alerta);
 
+
 maquina_de_estado = function()
 {
 	switch(estado)
 	{
 		case "chegando":
 		{
-			if (y < 160)
+			if (y < 120)
 			{
 				vspeed = 1.2;	
 			}
@@ -199,7 +200,6 @@ morrendo = function()
 		
 		//Se eu me destruir, eu tremo ainda mais a tela
 		screenshake(20);
-		
 		
 		//Som da explosão
 		efeito_som(snd_explosao)

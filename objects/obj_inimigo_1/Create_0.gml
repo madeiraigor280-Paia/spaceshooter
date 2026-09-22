@@ -38,7 +38,7 @@ morrendo = function()
 	//Criando o power up
 	//Se o chance for maior do que 90
 	//Ele cria o power up
-	if (_chance > 95)
+	if (_chance > 80)
 	{
 		instance_create_layer(x, y, layer, obj_powerup)
 	}
