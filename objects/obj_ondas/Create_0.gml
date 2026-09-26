@@ -1,7 +1,7 @@
 //Criando a minha primeira onda
 
 //Criando um array com minhas ondas
-ondas = [sq_onda1, sq_onda1b, sq_onda2];
+ondas = [sq_onda1, sq_onda1b, sq_onda2, sq_onda3];
 atual = 0;
 
 //Criando a minha primeira onda
@@ -12,6 +12,6 @@ alarm[0] = 100;
 
 
 timer_boss = choose(1000, 1200)
-timer_mini_boss = choose(500, 700)
+timer_mini_boss = choose(700, 800)
 tempo_mini = 0;
 tempo_boss = 0;

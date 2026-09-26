@@ -2,11 +2,11 @@
 //move_and_collide(velh * vel, velv * vel, obj_chao)
 
 //Ativando e desativando o meu debug
-if (keyboard_check_released(vk_tab))
-{
-	//Eu inverto o valor do debug
-	global.debug = !global.debug;
-}
+//if (keyboard_check_released(vk_tab))
+//{
+//	//Eu inverto o valor do debug
+//	global.debug = !global.debug;
+//}
 
 //Controlando o player
 controla_player();
@@ -16,10 +16,10 @@ controla_player();
 
 //Se o jogador estiver com 0 ou menos vida
 //Ele é destruido
-if (keyboard_check_pressed(vk_enter))
-{
-	perde_vida();
-}
+//if (keyboard_check_pressed(vk_enter))
+//{
+//	perde_vida();
+//}
 
 //Quando eu apertar a tecla E
 //Eu gasto 1 de escudo
@@ -28,19 +28,19 @@ if (keyboard_check_pressed(vk_enter))
 
 //Mudando o valor do level do meu tiro
 //Se eu apertei para cima, o level do meu tiro diminui
-var _cima = keyboard_check_pressed(ord("O"))
-var _baixo = keyboard_check_pressed(ord("L"))
-if (_baixo)
-{
-	level_tiro -= 1	
-	level_tiro = clamp(level_tiro, 1, 3)
-}
+//var _cima = keyboard_check_pressed(ord("O"))
+//var _baixo = keyboard_check_pressed(ord("L"))
+//if (_baixo)
+//{
+//	level_tiro -= 1	
+//	level_tiro = clamp(level_tiro, 1, 3)
+//}
 
-if (_cima)
-{
-	level_tiro += 1
-	level_tiro = clamp(level_tiro, 1, 3)
-}
+//if (_cima)
+//{
+//	level_tiro += 1
+//	level_tiro = clamp(level_tiro, 1, 3)
+//}
 
 //Fazer com image_yscale é ruim por que
 //Isso muda a colisão dele
@@ -48,7 +48,7 @@ retorna_mola(.3)
 
 contador_efeito_branco();
 
-if (keyboard_check_pressed(vk_backspace)) room_restart();
+//if (keyboard_check_pressed(vk_backspace)) room_restart();
 
 //if (keyboard_check_pressed(vk_up))
 //{

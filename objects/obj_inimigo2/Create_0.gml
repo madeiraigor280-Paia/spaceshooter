@@ -9,6 +9,7 @@ hp_secundario = vida_max;
 
 estado = "chegando"
 
+//show_message(y)
 screenshake(40)
 
 //Efeitos da mola e branco
