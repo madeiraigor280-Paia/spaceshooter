@@ -1,6 +1,8 @@
 
 //move_and_collide(velh * vel, velv * vel, obj_chao)
 
+
+
 //Ativando e desativando o meu debug
 //if (keyboard_check_released(vk_tab))
 //{

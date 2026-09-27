@@ -1,5 +1,10 @@
 //vspeed = -2;
 
+//Iniciando variaveis de velocidade
+velh = 0;
+velv = 0;
+vel = 10;
+
 tipo_movimento = "reto";
 
 morrendo = function()

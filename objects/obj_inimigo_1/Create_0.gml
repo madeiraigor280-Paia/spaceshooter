@@ -1,4 +1,8 @@
-alarm[0] = game_get_speed(gamespeed_fps) * 2;
+//Criando meu timer para ele ser usado no step
+tempo_tiro = 60;
+timer_tiro = tempo_tiro;
+
+//alarm[0] = game_get_speed(gamespeed_fps) * 2;
 
 //Descobrindo se eu fui criado uma sequence
 //O que faz saber se ele está uma sequencia ?
@@ -13,7 +17,7 @@ atirando = function()
 	if (x < room_width && x > 0 && y > 0 && y < room_height)
 	{
 		var _tiro	= instance_create_layer(x, y, "tiros", obj_tiro_inimigo1);
-		_tiro.vspeed = 4;
+		//_tiro.vspeed = 4;
 	}
 	
 }
@@ -43,5 +47,21 @@ morrendo = function()
 		instance_create_layer(x, y, layer, obj_powerup)
 	}
 		
+	
+}
+
+metodo_atirando = function()
+{
+	//Diminuindo o timer do tiro
+	timer_tiro--;
+	
+	//Se o timer do tiro foi zerado eu atiro
+	if (timer_tiro <= 0)
+	{
+		atirando();
+		
+		//Vou resetar o time do tiro e deixando aleatorio
+		timer_tiro = tempo_tiro * random_range(1, 3);
+	}
 	
 }

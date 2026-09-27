@@ -1,5 +1,6 @@
 //Atirando
 //instance_create_layer(x, y, "tiros", obj_tiro_inimigo1)
+/*
 atirando();
 
 //Reativando o alarme

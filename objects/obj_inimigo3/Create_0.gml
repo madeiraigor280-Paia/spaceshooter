@@ -94,7 +94,7 @@ maquina_de_estados = function()
 			
 				//Criando o tiro a
 				var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_a);
-				_tiro.speed = 2;
+				//_tiro.speed = 2;
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir + 90;
 				
@@ -126,7 +126,7 @@ maquina_de_estados = function()
 			{
 				//Criando o meu tiro
 				var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_b)
-				_tiro.speed = 4;
+				//_tiro.speed = 4;
 				_tiro.direction = _ang; //270 //315
 				
 				//Aumento o ang em 45

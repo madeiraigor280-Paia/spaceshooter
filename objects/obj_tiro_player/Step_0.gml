@@ -30,9 +30,15 @@ image_yscale = lerp(image_yscale, 1, .1);
 if (tipo_movimento == "reto")
 {
 	//Fazendo o tiro do player ganhar velocidade
-	vspeed = lerp(vspeed, -10, .1); 
+	//vspeed = lerp(vspeed, -10, .1);
+	velv = lerp(velv, -10, .1);
+	y += velv
+	
 }
 else if (tipo_movimento == "radial")
 {
-	speed = lerp(speed, 10, .1)
+	//speed = lerp(speed, 10, .1)
+	velv = lerp(velv, -10, .1);
+	
+	y += velv
 }
