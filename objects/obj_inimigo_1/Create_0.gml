@@ -17,7 +17,7 @@ atirando = function()
 	if (x < room_width && x > 0 && y > 0 && y < room_height)
 	{
 		var _tiro	= instance_create_layer(x, y, "tiros", obj_tiro_inimigo1);
-		//_tiro.vspeed = 4;
+		_tiro.velv = 4;
 	}
 	
 }
@@ -37,6 +37,8 @@ morrendo = function()
 	sendo_destruido(obj_explosao_inimigo);
 	//Explodindo
 	efeito_som(snd_explosao, .1);
+	
+	ativa_hitstop(2);
 	
 	var _chance = random(100)
 	//Criando o power up

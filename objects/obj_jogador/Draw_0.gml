@@ -1,8 +1,10 @@
 //Me desenhando
 //draw_self()
 
-desenha_efeito_branco(desenha_efeito_mola)
-
+if (mostrar)
+{
+	desenha_efeito_branco(desenha_efeito_mola)
+}
 //Só vou me desenhar branco SE eu tomei dano
 
 /*

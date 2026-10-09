@@ -1,8 +1,8 @@
 //Fazendo ele voltar a animação para trás
 //Se a animação cair para trás
-image_speed = -0.3;
+//image_speed = -0.3;
 
-efeito_som(sfx_shieldDown, 0)
+//efeito_som(sfx_shieldDown, 0)
 
 //Fazer a animação ficar reversa
 //Checar se a animação reversa acabou (image_index é < 0.2)

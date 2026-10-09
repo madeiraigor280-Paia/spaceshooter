@@ -3,11 +3,19 @@ vida = 10;
 //Variavel que controla o meu estado
 estado = "chegando";
 
+velh = 0;
+velv = 0;
+vel	 = 1;
+
 contador = 0;
 
 //Iniciando os efeitos
 inicia_efeito_branco();
 inicia_efeito_mola()
+
+dir_x_fug = 0;
+dir_y_fug = 0;
+dir = 0;
 
 tempo_carregando = game_get_speed(gamespeed_fps) * 3;
 timer_carregando = 0;
@@ -35,7 +43,7 @@ maquina_de_estados = function()
 			//Ele vai ir para baixo
 			if (y < 160)
 			{
-				vspeed = 1.2
+				velv = vel;
 				
 			}
 			else //Meu Y não é menor do que 160, ele só pode ser 160 ou mais
@@ -54,7 +62,7 @@ maquina_de_estados = function()
 		
 		case "carregando":
 		{
-			vspeed = 0;
+			velv = 0;
 			//Aumentar o valor do timer até ele chegar no tempo
 			timer_carregando++;
 			
@@ -94,7 +102,15 @@ maquina_de_estados = function()
 			
 				//Criando o tiro a
 				var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_a);
-				//_tiro.speed = 2;
+				
+				var _vel = 2;
+				var _velh = lengthdir_x(_vel, _dir);
+				var _velv = lengthdir_y(_vel, _dir);
+				
+				//Passando o velh e velv para o tiro
+				_tiro.velh = _velh;
+				_tiro.velv = _velv;
+				
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir + 90;
 				
@@ -107,7 +123,17 @@ maquina_de_estados = function()
 			}
 			else
 			{
-				estado = "fugindo";	
+				estado = "fugindo";
+				
+				//Randomizar as coordenadas
+				//Escolhendo a direção para onde eu vou fugir
+				dir = irandom(359);
+				//var _x = choose(-32, 320)
+				//var _y = choose(-32, 576)
+				
+				
+				//dir_x_fug = lengthdir_x(vel, _x);
+				//dir_y_fug = lengthdir_y(vel, _y);
 			}
 			
 			
@@ -118,7 +144,8 @@ maquina_de_estados = function()
 		case "atirando2":
 		{
 			efeito_mola(1.5, .5);
-			var _ang = 255;
+			var _range = 5
+			var _ang = 255 + random_range(-_range, _range);
 			
 			efeito_som(snd_tiro, .1);
 			//Repetir a criação do tiro 3x
@@ -126,7 +153,16 @@ maquina_de_estados = function()
 			{
 				//Criando o meu tiro
 				var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_inimigo3_b)
-				//_tiro.speed = 4;
+				//Pegando o valor do velh dele com base na direção que ele tem que ir
+				var _vel = _tiro.vel
+				var _velh = lengthdir_x(_vel, _ang);
+				var _velv = lengthdir_y(_vel, _ang);
+				
+				//Passando o velh  e velv do tiro
+				_tiro.velh = _velh;
+				_tiro.velv = _velv;
+				
+				
 				_tiro.direction = _ang; //270 //315
 				
 				//Aumento o ang em 45
@@ -144,7 +180,20 @@ maquina_de_estados = function()
 			}
 			else
 			{
-				estado = "fugindo";	
+				estado = "fugindo";
+				
+				//Randomizar as coordenadas
+				//Escolhendo a direção para onde eu vou fugir
+				dir = irandom(359);
+				
+				////Escolhendo a direção para onde eu vou fugir
+				//var _x = choose(-32, 320)
+				//var _y = choose(-32, 576)
+				
+				////Escolhendo a direção para onde eu vou fugir
+				//dir_x_fug = _x;
+				//dir_y_fug = _y;
+				
 			}
 			//Caso contrário ele vai para o estado de fugindo
 		}
@@ -156,23 +205,35 @@ maquina_de_estados = function()
 			//Decidindo o lado SE eu ainda não decidi uma direção
 			if (decidi_direcao == false)
 			{
-				hspeed = choose(-1, 1);
+				
+				//var _dir = point_direction(x, y, dir_x_fug, dir_y_fug);
+				
+				velh = lengthdir_x(vel * 2, dir)
+				velv = lengthdir_y(vel * 2, dir);
+				//if (point_direction(x, y, dir_x_fug, dir_y_fug) <= vel)
+				//{
+				//	velh = 0;
+				//	velv = 0;
+					
+				//}
+				
 				
 				
 				//Já decidi minha direção
 				decidi_direcao = true;
 			}
 			
-			vspeed = -1;
+			 
 			
 			//Já sai da tela, eu me destruo
-			if (y <= -100)
+			if (y <= -100 or y >= room_height + 100 or x < -100 or x > room_width + 100)
 			{
 				instance_destroy();
 			}
 			
 		}
 		break;
+		
 	}
 	
 }
@@ -183,7 +244,7 @@ morrendo = function()
 	efeito_mola(1.5, .5);
 	timer_efeito_branco(2);
 	
-	
+	ativa_hitstop(1);
 	//Se ele ficou sem vida ele se destroi
 	if (vida > 1)
 	{

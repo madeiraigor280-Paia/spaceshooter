@@ -8,6 +8,7 @@ global.destino = rm_inicio;
 randomize();
 global.transicao = false;
 
+//randomise();
 
 global.pontos = 0;
 global.level = 1

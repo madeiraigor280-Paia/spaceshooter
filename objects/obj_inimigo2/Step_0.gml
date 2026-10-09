@@ -1,7 +1,11 @@
 // Inherit the parent event
 
+if (global.hitstop) exit;
 
 maquina_de_estado();
+
+y += velv;
+x += velh;
 
 var _tam_sprite = bbox_right-bbox_left;
 

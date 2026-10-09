@@ -110,6 +110,7 @@ desenha_menu = function()
 	//Pegando a altura da fonte
 	var _alt = string_height("I")
 
+   
 	//Desenhando a opção de jogar do meu menu
 
 	//Usando um laço de repetição para desenhar todas as opções do menu

@@ -1,5 +1,6 @@
 //Checando se eu sai da room por cima
 
+if (global.hitstop) exit;
 
 if (y <= -32)
 {
@@ -32,13 +33,20 @@ if (tipo_movimento == "reto")
 	//Fazendo o tiro do player ganhar velocidade
 	//vspeed = lerp(vspeed, -10, .1);
 	velv = lerp(velv, -10, .1);
-	y += velv
+	y += velv;
+	x += velh;
 	
 }
 else if (tipo_movimento == "radial")
 {
 	//speed = lerp(speed, 10, .1)
-	velv = lerp(velv, -10, .1);
+	//velv = lerp(velv, -10, .1);
 	
-	y += velv
+	y += velv;
+	x += velh;
 }
+
+//Criando o meu rastro
+var _rastro = instance_create_depth(x, y, depth, obj_rastro_tiro);
+//Passando a minha cor para o rastro
+_rastro.cor = cor;

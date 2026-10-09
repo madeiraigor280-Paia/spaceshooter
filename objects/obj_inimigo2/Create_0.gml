@@ -9,6 +9,10 @@ hp_secundario = vida_max;
 
 estado = "chegando"
 
+velh = 0;
+velv = 0;
+vel = 1;
+
 //show_message(y)
 screenshake(40)
 
@@ -44,7 +48,7 @@ maquina_de_estado = function()
 		{
 			if (y < 120)
 			{
-				vspeed = 1.2;	
+				velv += vel;	
 			}
 			else
 			{
@@ -59,18 +63,18 @@ maquina_de_estado = function()
 		case "carregando":
 			//Diminuindo o timer carregando
 			carrega++;
-			vspeed = 0;
+			velv = 0;
 			if (!escolhi)
 			{
-				hspeed = choose(-1.2, 1.2)
+				velh = choose(-vel, vel)
 				escolhi = true;
 				
 			}
 			
-			var _chao = place_meeting(x + hspeed, y, obj_chao)
+			var _chao = place_meeting(x + velh, y, obj_chao)
 			if (_chao)
 			{
-				hspeed = -hspeed;	
+				velh = -velh;	
 				
 			}
 			
@@ -90,7 +94,7 @@ maquina_de_estado = function()
 		case "atirando1":
 		{
 			
-			hspeed = 0;
+			velh = 0;
 			for (var i=0; i<12; i++)
 			{
 				var _dire = i*-10;
@@ -112,7 +116,7 @@ maquina_de_estado = function()
 		break;
 		
 		case "atirando2":
-			hspeed = 0;
+			velh = 0;
 			if (instance_exists(obj_jogador))
 			{
 				var _dir = point_direction(x, y, obj_jogador.x, obj_jogador.y)
@@ -138,7 +142,7 @@ maquina_de_estado = function()
 		
 		
 		case "atirando3":
-			hspeed = 0;
+			velh = 0;
 			
 			
 			var _x = 0;
@@ -158,7 +162,7 @@ maquina_de_estado = function()
 		
 		case "taunt":
 		{
-			hspeed = 0;
+			velh = 0;
 			
 			tempo_taunt++;
 			

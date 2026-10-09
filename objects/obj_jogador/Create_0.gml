@@ -2,13 +2,15 @@
 
 #region variaveis
 //iniciando as minhas variaveis
-velh = 0
-velv = 0
+mostrar = true;
 
-vel = 2
+velh = 0;
+velv = 0;
+
+vel = 2;
 
 //Vidas
-max_vida = 3
+max_vida = 3;
 vidas		= max_vida;
 
 //Escudos
@@ -52,6 +54,18 @@ controla_player = function()
 	
 	//Diminuindo o timer invencivel
 	timer_invencivel--;
+	
+	//Se eu estou invencivel, eu altero o valor de mostrar
+	if (timer_invencivel > 0 && !meu_escudo)
+	{
+		//Se eu NAO estou usando o escudo
+		mostrar = !mostrar;
+	}
+	else
+	{
+		//Acabou o tempo de invencivel,	 eu fico visivel
+		mostrar = true;
+	}
 	
 	//Pegando as teclas
 	var _right	 = keyboard_check(ord("D")) or keyboard_check(vk_right);
@@ -172,14 +186,18 @@ controla_player = function()
 		
 	}
 	
-
+	
+	
+	
 }
 
 //Criando o metodo do tiro 1
 tiro_1 = function()
 {
 	//Criando o tiro
-	var _tiro = instance_create_layer(x, y, "tiros", obj_tiro_player);
+	var _range = 10;
+	var _x = x + random_range(-_range, _range)
+	var _tiro = instance_create_layer(_x, y, "tiros", obj_tiro_player);
 	
 	
 	//Dando a velocidade para o tiro
@@ -191,10 +209,13 @@ tiro_1 = function()
 tiro_2 = function()
 {
 	//Criando o tiro da esquerda
-	var _tiro = instance_create_layer(x - 10, y, "tiros", obj_tiro_player);
+	var _range = 10;
+	var _x = x + random_range(-_range, _range)
+	
+	var _tiro = instance_create_layer(_x - 10, y, "tiros", obj_tiro_player);
 	//Dando a velocidade para o tiro
 	//_tiro.vspeed = -10
-	_tiro = instance_create_layer(x + 10, y, "tiros", obj_tiro_player);
+	_tiro = instance_create_layer(_x + 10, y, "tiros", obj_tiro_player);
 	//_tiro.vspeed = -10
 
 
@@ -215,11 +236,21 @@ tiro_4 = function()
 	{
 		var _dire = i*-10;
 		var _tiro = instance_create_layer(x,y,"tiros",obj_tiro_player);
+		//Pegando o valor do velh dele com base na direção que ele tem que ir
+			var _vel = _tiro.vel
+			var _velh = lengthdir_x(_vel, _dire);
+			var _velv = lengthdir_y(_vel, _dire);
+				
+			//Passando o velh  e velv do tiro
+		
+		_tiro.velv = _velv;
+				
 		//_tiro.speed = -10;	
 		_tiro.direction = 0+_dire;
+		_tiro.velh = _velh
 		_tiro.image_angle = _tiro.direction+90;
 		_tiro.tipo_movimento = "radial";
-		_tiro.speed = 2;   // velocidade inicial, na direção certa
+		//_tiro.speed = 2;   // velocidade inicial, na direção certa
 		
 		
 	}
@@ -301,9 +332,13 @@ perde_vida = function()
 	if (timer_invencivel > 0) return;
 		
 		//Vou ficar meio achatado
-		efeito_mola(2, .5)
+		efeito_mola(2, .5);
 		
-		timer_efeito_branco(3)
+		timer_efeito_branco(3);
+		
+		var _cor = $4FFF66;
+		//Fazendo o flash de dano
+		ativa_damage_flash(c_red);
 		
 		//Perdendo vida SE eu ainda tenho vida
 		if (vidas > 0)
@@ -314,6 +349,9 @@ perde_vida = function()
 			timer_invencivel = tempo_invencivel;
 			
 			screenshake(20)
+			
+			//Tomei tiro, eu travo o jogo
+			ativa_hitstop(10);
 			
 		}
 		else //Ou seja, se a vidas forem 0 ou menos

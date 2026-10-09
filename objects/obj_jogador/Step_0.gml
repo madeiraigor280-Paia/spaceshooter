@@ -1,5 +1,7 @@
 
 //move_and_collide(velh * vel, velv * vel, obj_chao)
+//if (keyboard_check_pressed(vk_numpad5)) global.hitstop = !global.hitstop;
+if (global.hitstop) exit;
 
 
 
